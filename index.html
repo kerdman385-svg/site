@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій Сучасний Сайт | Портфоліо</title>
+    <style>
+        /* ===== ОБНУЛЕННЯ СТИЛІВ ТА БАЗОВІ НАЛАШТУВАННЯ ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            line-height: 1.6;
+        }
+
+        /* ===== ШАПКА ТА НАВІГАЦІЯ ===== */
+        header {
+            background-color: rgba(17, 24, 39, 0.95);
+            border-bottom: 1px solid #1f2937;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #3b82f6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        /* ===== ГОЛОВНИЙ БАНЕР (HERO SECTION) ===== */
+        .hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #3b82f6;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        }
+
+        .cta-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        /* ===== СЕКЦІЯ РОБІТ (PORTFOLIO) ===== */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: #3b82f6;
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== КОНТАКТИ (CONTACTS) ===== */
+        .contacts-box {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: block;
+            padding: 15px;
+            background-color: #1f2937;
+            border: 1px solid transparent;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: #3b82f6;
+            background-color: #1e3a8a;
+            transform: scale(1.02);
+        }
+
+        /* ===== СТИЛІ ДЛЯ АНКЕТИ (ПРО СЕБЕ) ===== */
+        .about-me-box {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .about-me-box h3 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 10px;
+        }
+
+        .about-me-box p {
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            color: #d1d5db;
+            text-align: left;
+        }
+
+        .about-me-box b {
+            color: #3b82f6;
+            margin-right: 5px;
+        }
+
+        .about-me-box a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .about-me-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== ПІДВАЛ (FOOTER) ===== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7280;
+            border-top: 1px solid #1f2937;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== АДАПТИВНІСТЬ ДЛЯ МОБІЛОК ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { flex-direction: column; gap: 15px; text-align: center; }
+            .about-me-box { padding: 25px; margin: 0 20px 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Vsevolod</div>
+            <ul class="nav-links">
+                <li><a href="#home">Головна</a></li>
+                <li><a href="#projects">Проєкти</a></li>
+                <li><a href="#about">Про мене</a></li>
+                <li><a href="#contacts">Контактувати</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Привіт, я <span>Всеволод Кердман</span></h1>
+        <p>Починаючий Web-розробник. Створюю сучасні, швидкі та адаптивні сайти, які чудово виглядають на будь-яких пристроях.</p>
+        <a href="#contacts" class="cta-btn">Зв'язатися зі мною</a>
+    </section>
+
+    <section id="projects" class="section">
+        <h2 class="section-title">Мої послуги та проєкти</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <span class="card-icon">💻</span>
+                <h3>Розробка сайтів</h3>
+                <p>Верстка та програмування лендінгів, сайтів-візиток, а також інтернет-магазинів "під ключ".</p>
+                <a href="https://kerdman385-svg.github.io/me-site3/" target="_blank" class="card-link">Дивитись приклад →</a>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🎨</span>
+                <h3>Адаптивний дизайн</h3>
+                <p>Оптимізація інтерфейсів под мобільні телефони, планшети та великі монітори комп'ютерів.</p>
+                <a href="#contacts" class="card-link">Замовити дизайн →</a>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">⚡</span>
+                <h3>Швидкість та SEO</h3>
+                <p>Оптимізація коду для миттєвого завантаження сторінок та базова підготовка сайту до пошукових систем.</p>
+                <a href="#contacts" class="card-link">Дізнатись більше →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contacts" class="section">
+        <h2 class="section-title">Замовити сайт</h2>
+        <div class="contacts-box">
+            <p>Маєш ідею для проєкту чи потрібен крутий сайт для сервера? Напиши або зателефонуй мені прямо зараз!</p>
+            <div class="contact-links">
+                <a href="https://t.me/Angelo4ek266" target="_blank" class="contact-item">✈️ Написати в Telegram: @Angelo4ek266</a>
+                <a href="#" onclick="alert('Мій Discord: toxictop (скопіюйте та додайте в друзі)'); return false;" class="contact-item">💬 Мій Discord: toxictop</a>
+                <a href="tel:+380751034661" class="contact-item">📞 Зателефонувати: 075 103 4661</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== НОВИЙ БЛОК: АНКЕТА (ПРОПИСАНО ПІСЛЯ ЗАКРИВАЮЧОГО ТЕГУ SECTION) ===== -->
+    <div id="about" class="about-me-box">
+        <h3>Анкета про себе</h3>
+        <p><b>Прізвище та ім'я:</b> Кердман Всеволод</p>
+        <p><b>Вік:</b> 14</p>
+        <p><b>Дата народження:</b>21.10.2012</p>
+        <p><b>Місто / населений пункт:</b> Україна</p>
+        <p><b>Хобі та захоплення:</b> Web-розробка, створення сайтів, комп'ютерні ігри</p>
+        <p><b>Моя улюблена книга / фільм / гра:</b> Minecraft, CS2</p>
+        <p><b>Що мене надихає:</b> Круті та красиві веб-інтерфейси, успіхи у кодуванні</p>
+        <p><b>Чого хочу навчитися цього року:</b> Добре опанувати JavaScript, покращити навички у Web розробці</p>
+        <p><b>Цікавий факт про мене:</b> Створюю власні веб-проєкти з нуля і люблю оптимізувати код.</p>
+        <p><b>Улюблена цитата:</b> «Упав — вставай, встав — упав, чокопай» — Кердман Всеволод 
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Всеволод Кердман. Усі права захищені.</p>
+    </footer>
+
+</body>
+</html>
